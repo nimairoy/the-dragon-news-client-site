@@ -2,8 +2,8 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <div>
-            <p className='text-center'>&copy; Copyright All Reserved The Dragon News</p>
+        <div style={{background: '#F3F3F3'}}  className='mt-4 py-4 container'>
+            <p className='text-center mb-0'>&copy; Copyright All Reserved The Dragon News</p>
         </div>
     );
 };

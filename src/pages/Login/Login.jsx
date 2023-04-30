@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
+
+    const [error, setError] = useState('');
 
     const { logIn } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -26,8 +28,9 @@ const Login = () => {
             console.log(loggedUser);
             navigate(from, {replace: true});
         })
-        .catch(error => {
-            console.log('Error', error);
+        .catch(err => {
+            console.log('Error', err);
+            setError(err.message)
         })
     }
 
@@ -57,6 +60,9 @@ const Login = () => {
                             Don't have an account ? <Link to="/register">Register</Link>
                         </Form.Text>
                     </Form.Group>
+                    <Form.Text className='text-danger'>
+                        {error}
+                    </Form.Text>
                 </Form>
             </div>
         </Container>

@@ -2,6 +2,7 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Login = () => {
 
@@ -23,17 +24,19 @@ const Login = () => {
         console.log(email, password)
         // call the logIn function
         logIn(email, password)
-        .then(result => {
-            const loggedUser = result.user;
-            console.log(loggedUser);
-            navigate(from, {replace: true});
-        })
-        .catch(err => {
-            console.log('Error', err);
-            setError(err.message)
-        })
+            .then(result => {
+                const loggedUser = result.user;
+                console.log(loggedUser);
+                navigate(from, { replace: true });
+            })
+            .catch(err => {
+                console.log('Error', err);
+                setError(err.message)
+            })
     }
 
+    // dynamic title
+    useTitle('login')
 
     return (
         <Container>

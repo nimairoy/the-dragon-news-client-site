@@ -2,9 +2,11 @@ import React, { useContext, useState } from 'react';
 import { Button, Container, Form } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
+import useTitle from '../../hooks/useTitle';
 
 const Register = () => {
 
+    useTitle('Register')
     const { createUser } = useContext(AuthContext);
     const [checked, setChecked] = useState(false);
 

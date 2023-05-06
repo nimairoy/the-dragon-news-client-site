@@ -3,8 +3,11 @@ import first from '../../../../assets/1.png';
 import second from '../../../../assets/2.png';
 import third from '../../../../assets/3.png';
 import { Card, Col, Row } from 'react-bootstrap';
+import useTitle from '../../../../hooks/useTitle';
 
 const EditorInsight = () => {
+
+    useTitle('Editor insight')
 
     return (
         <Row xs={1} md={2} lg={3} className="g-4 pt-4">
